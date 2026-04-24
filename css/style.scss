@@ -179,3 +179,51 @@ main{
                 }
         }
 }
+
+/*Tekst og billede-sektion*/
+
+.txt-img-section{
+    grid-column: 1/7;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+        .tekst{
+            grid-column: 1/5;
+            background-color: partial.$secondaryColor;
+            padding: 2em 4em 4em 4em;
+
+                p, h2{
+                    color: partial.$bgColor;
+                }
+
+                p:nth-of-type(4){
+                    margin-bottom: 3em;
+                }
+
+                h2{
+                    text-align: left;
+                }
+
+                .secondary-btn{
+                    @include partial.btn($bgColor: transparent);
+                    border: 2px solid #fff;
+
+                        &:hover{
+                            background-color: #fff;
+                            color: partial.$secondaryColor;
+                            transition: 0.3s ease-in-out;
+                        }
+                    
+                }
+        }
+
+    .billede{
+        grid-column: 5/8;
+        background-image: url(../img/presentation.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }    
+}
+
+
