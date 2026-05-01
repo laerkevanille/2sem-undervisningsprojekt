@@ -259,6 +259,28 @@ main{
 input[type=text], input[type=email], input[type=tel], select, textarea{
     width: 100%;
     font-size: 15px;
+    border: 2px solid partial.$secondaryColor;
+    border-radius: 4px;
+    margin: 0.5em 1em 1em 1em;
+    box-sizing: border-box;
+    font-family: partial.$font;
+
+        &::placeholder{
+            color: partial.$textColor;
+        }
+}
+
+input[type=submit]{
+    @include partial.btn;
+    border: none;
+    width: 100%;
+    margin: 0 1em;
+    cursor: pointer;
+
+        &:hover{
+            background-color: partial.$secondaryColor;
+            transition: 0.3s ease-in-out;
+        }
 }
 
 .visually-hidden{ /*Bootstrap defineret class som fjerner element fra skærm, men som stadig kan læses af skærmlæseren*/
@@ -271,4 +293,59 @@ input[type=text], input[type=email], input[type=tel], select, textarea{
     clip: rect(0,0,0,0) !important;
     white-space: nowrap !important;
     border: 0 !important;
+}
+
+
+/*Footer*/
+
+footer:nth-of-type(1){
+    grid-column: 1/6;
+    background-color: partial.$footerColor;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1em 4em;
+
+        p, h4{
+            color: partial.$navColor;
+            line-height: 0.5;
+            font-style: normal;
+        }
+
+        h4{
+            font-size: 18px;
+        }
+
+        a{
+            color: partial.$navColor;
+            text-decoration: underline;
+
+                &:hover{
+                    color: partial.$primaryColor;
+                }
+        }
+
+        .logo-footer{
+            width: 100px;
+            height: auto;
+        }
+}
+
+.footer-left{
+    grid-column: 1/2;
+}
+
+.footer-right{
+    grid-column: 2/3;
+    text-align: right;
+    margin: auto 0;
+}
+
+footer:nth-of-type(2){
+    grid-column: 1/6;
+    background-color: partial.$secondaryColor;
+    text-align: center;
+    
+        p{
+            color: partial.$bgColor;
+        }
 }
